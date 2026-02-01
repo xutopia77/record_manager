@@ -46,7 +46,7 @@ onMounted(() => {
 .content-section {
     padding: 0;
     margin: 0;
-    height: calc(100% - 342px);
+    height: calc(100% - 32px);
     width: 100%;
     overflow-y: auto;
     /* 添加垂直滚动条 */
