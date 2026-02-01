@@ -6,7 +6,3 @@ out
 *.log*
 src/main/proc_models/contour_records.json
 appData
-
-.trae
-.vscode
-doc

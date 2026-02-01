@@ -91,25 +91,18 @@ const isAboutModalVisible = ref<boolean>(false)
 let statusInfoTitle = ref<string>('')
 let statusInfo = ref<string>('')
 
-// 监听 appStore 的变化来更新状态信息
+function navContentMake(): void {
+    statusInfoTitle.value =
+        appStore.prj.repoType == DataTypes.RepoType.Normal ? '仓库文件' : '回收站文件'
+    const repoStr = appStore.prj.repoType == DataTypes.RepoType.Normal ? '🗄️' : '🗑️'
+    statusInfo.value = `${repoStr} ${appStore.homeNavContent}`
+}
+
 watch(
-    () => [appStore.curVideoInfo, appStore.prj.repoType],
+    () => appStore.homeNavContent,
     () => {
-        let curSltVideoName =
-            appStore.curVideoInfo == null
-                ? ''
-                : DataTypes.File.makeDisplayName(appStore.curVideoInfo)
-
-        if (appStore.prj.repoType != null) {
-            const repoStr = appStore.prj.repoType == DataTypes.RepoType.Normal ? '🗄️' : '🗑️'
-            statusInfoTitle.value =
-                appStore.prj.repoType == DataTypes.RepoType.Normal ? '仓库文件' : '回收站文件'
-            curSltVideoName = `${repoStr} ${curSltVideoName}`
-        }
-
-        statusInfo.value = curSltVideoName
-    },
-    { immediate: true }
+        navContentMake()
+    }
 )
 
 // 切换下拉菜单的显示状态
@@ -195,6 +188,7 @@ function btn_function(): void {
 
 onMounted(() => {
     document.addEventListener('click', handleClickOutside)
+    navContentMake()
 })
 
 onUnmounted(() => {

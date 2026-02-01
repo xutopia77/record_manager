@@ -14,12 +14,12 @@ export type AppStore = {
     prj: DataTypes.Prj
     serverUrlPrefix: string
 
-    // ------
+    // ------ message toast
     bPageResentMsg: boolean // 打开界面 最近消息
-
-    // message toast
     toasts: ToastMessage[]
     historyToasts: ToastMessage[]
+    // ------
+    homeNavContent: string
     // ------
     videoPlayCtrl: {
         curSrc: string // 当前播放视频地址
@@ -37,7 +37,8 @@ export type AppStore = {
     videoList: DataTypes.File[]
     curCheckedVideo: Set<DataTypes.File>
     curSltVideo: DataTypes.File | null // 在列表中，鼠标选中后，更新
-    curVideoInfo: DataTypes.File | null // 根据 鼠标选中的视频，从后台获取信息，更新此信息
+    curSltVideoName4Play: string // 当前选中视频的名称，在videoPreview中watch然后，更新播放状态使用，其他地方不要用这个变量 
+    // curVideoInfo: DataTypes.File | null // 根据 鼠标选中的视频，从后台获取信息，更新此信息
     //   videoSplitInfo: any[]
     bShowKeyFrameInfo: boolean
     barSeekTime: number
@@ -60,11 +61,13 @@ export const useAppStore = defineStore('app', {
         // utils
         // serverUrlPrefix: "http://localhost:38080",
         serverUrlPrefix: '',
-        // ------
+
+        // ------ message toast
         bPageResentMsg: false,
-        // message toast
         toasts: [],
         historyToasts: [],
+        // ------
+        homeNavContent: '',
         // video play
         videoPlayCtrl: {
             curSrc: '', // 当前播放视频地址
@@ -83,7 +86,8 @@ export const useAppStore = defineStore('app', {
         videoList: [],
         curCheckedVideo: new Set<DataTypes.File>(), // 当前选中的视频列表
         curSltVideo: null, // 当前选中的视频
-        curVideoInfo: null, // 当前选中的视频信息
+        curSltVideoName4Play: '', // 当前选中视频的名称，在videoPreview中watch然后，更新播放状态使用，其他地方不要用这个变量
+        // curVideoInfo: null, // 当前选中的视频信息
         // ------ 视频切分信息
         // videoSplitInfo: [],
         bShowKeyFrameInfo: false, // 是否显示关键帧信息

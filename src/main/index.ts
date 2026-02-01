@@ -5,6 +5,14 @@ import icon from '../../resources/icon.png?asset'
 
 import { IpcHandlers } from './proc_models/IpcHandlers'
 import appProc from './proc_models/AppProc'
+// import logger from './proc_models/Logger'
+// import recordsProc from './proc_models/RecordsProcess'
+// import { open, Database } from 'sqlite'
+// import { open } from 'sqlite'
+// import sqlite3 from 'sqlite3'
+// import * as fs from 'fs/promises'
+// import * as path from 'path'
+
 const handlers = new IpcHandlers()
 
 function createWindow(): void {
@@ -51,7 +59,7 @@ function createWindow(): void {
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
-// Some APIs can only be used after this event occurs.
+// Some APIs can only be used after this event occur.
 app.whenReady().then(async () => {
     await appProc.initApp()
 

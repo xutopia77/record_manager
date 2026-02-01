@@ -48,9 +48,13 @@ const viewModel = computed(() => {
 const videoRef = ref<HTMLVideoElement | null>(null)
 
 watch(
-    () => appStore.curSltVideo,
-    async (newVal: DataTypes.File | null) => {
-        if (newVal == null) {
+    () => appStore.curSltVideoName4Play,
+    () => {
+        if (
+            appStore.curSltVideoName4Play == null ||
+            appStore.curSltVideoName4Play == '' ||
+            appStore.curSltVideo == null
+        ) {
             if (videoRef.value) {
                 videoRef.value.src = ''
             }
@@ -59,19 +63,13 @@ watch(
         const clearReq = new DataTypes.ClearSltInfoReq()
         clearReq.bNotClear_curSltVideo = true
         util.clear_cur_slt_video_info(clearReq)
-        await util.get_slt_video(newVal)
-        console.log(`video info ${newVal}`)
-        const playReq = new PlayReq(DataTypes.File.makePlayUrl(newVal))
+        console.log(`video info ${appStore.curSltVideo}`)
+
+        const playReq = new PlayReq(DataTypes.File.makePlayUrl(appStore.curSltVideo))
         if (videoRef.value == null) {
             return
         }
         util.play_video(videoRef.value, playReq)
-    }
-)
-watch(
-    () => appStore.curVideoInfo,
-    () => {
-        console.log('cur slt video info', appStore.curVideoInfo)
     }
 )
 
@@ -88,7 +86,7 @@ watch(
 
 function nextFrame(): void {
     if (videoRef.value != null) {
-        const frameRate = appStore.curVideoInfo?.mediaInfo?.video.frame_rate
+        const frameRate = appStore.curSltVideo?.mediaInfo?.video.frame_rate
         if (frameRate == null) {
             console.log('frame rate is null')
             return
@@ -102,7 +100,7 @@ function nextFrame(): void {
 
 function previousFrame(): void {
     if (videoRef.value != null) {
-        const frameRate = appStore.curVideoInfo?.mediaInfo?.video.frame_rate
+        const frameRate = appStore.curSltVideo?.mediaInfo?.video.frame_rate
         if (frameRate == null) {
             console.log('frame rate is null')
             return
@@ -173,74 +171,53 @@ watch(
     }
 )
 
-/*
-        0 (HAVE_NOTHING)：没有获取到任何视频的相关信息。
-        1 (HAVE_METADATA)：已经获取到视频的元数据（如时长、尺寸等），但没有足够的数据来播放。
-        2 (HAVE_CURRENT_DATA)：当前播放位置的数据已可用，但不足以播放下一帧。
-        3 (HAVE_FUTURE_DATA)：当前播放位置及后续部分数据可用，可以播放一小段时间。
-        4 (HAVE_ENOUGH_DATA)：有足够的数据可以流畅播放。
-      */
-
-// watch(
-//   () => appStore.barSeekTime,
-//   (newValue) => {
-//     if (videoRef.value != null) {
-//       /*
-//         0 (HAVE_NOTHING)：没有获取到任何视频的相关信息。
-//         1 (HAVE_METADATA)：已经获取到视频的元数据（如时长、尺寸等），但没有足够的数据来播放。
-//         2 (HAVE_CURRENT_DATA)：当前播放位置的数据已可用，但不足以播放下一帧。
-//         3 (HAVE_FUTURE_DATA)：当前播放位置及后续部分数据可用，可以播放一小段时间。
-//         4 (HAVE_ENOUGH_DATA)：有足够的数据可以流畅播放。
-//       */
-//       console.log(
-//         `seek to ${newValue}, duration ${videoRef.value.duration}, state ${videoRef.value.readyState}`
-//       )
-//       videoRef.value.currentTime = newValue + appStore.videoPlayCtrl.videoStartTime
-//       // util.set_video_cur_time(videoRef.value, newValue + appStore.videoPlayCtrl.videoStartTime)
-//     }
-//   }
-// )
-
-// 提取比较逻辑到独立函数
-function isSeekSuccessful(currentTime: number, targetTime: number): boolean {
-    return Math.abs(currentTime - targetTime) < 0.2
-}
-
 watch(
     () => appStore.barSeekTime,
     (newValue) => {
         if (videoRef.value != null) {
-            const trySeek = (): void => {
-                if (videoRef.value == null) {
-                    return
-                }
-                const targetTime = newValue + appStore.videoPlayCtrl.videoStartTime
-                videoRef.value.currentTime = targetTime
-                // console.log(
-                //   `retry seek to ${newValue}, duration ${videoRef.value.duration}, state ${videoRef.value.readyState}, currentTime ${appStore.videoPlayCtrl.curTime}, abs diff ${appStore.videoPlayCtrl.curTime - targetTime}`
-                // )
-                console.log(
-                    `retry seek to ${targetTime}(start:${appStore.videoPlayCtrl.videoStartTime}), state ${videoRef.value.readyState}, currentTime ${appStore.videoPlayCtrl.curTime}, abs diff ${appStore.videoPlayCtrl.curTime - targetTime}`
-                )
-                if (isSeekSuccessful(appStore.videoPlayCtrl.curTime, targetTime)) {
-                    return
-                }
+            const targetTime = newValue + appStore.videoPlayCtrl.videoStartTime
 
-                if (videoRef.value.readyState >= 2) {
-                    videoRef.value.currentTime = targetTime
-                    console.log(
-                        `seek to ${newValue}, duration ${videoRef.value.duration}, state ${videoRef.value.readyState}, currentTime ${appStore.videoPlayCtrl.curTime}`
-                    )
-                } else {
-                    // 如果状态不满足，等待一段时间后重试
-                    // console.log(
-                    //   `retry seek to ${newValue}, duration ${videoRef.value.duration}, state ${videoRef.value.readyState}, currentTime ${appStore.videoPlayCtrl.curTime}`
-                    // )
-                    setTimeout(trySeek, 100)
-                }
+            // 暂停视频以确保seek操作能够正确执行
+            const wasPlaying = !videoRef.value.paused
+            if (wasPlaying) {
+                videoRef.value.pause()
             }
 
-            trySeek()
+            // 设置新的播放时间
+            videoRef.value.currentTime = targetTime
+
+            console.log(
+                `seeking to ${targetTime}(start:${appStore.videoPlayCtrl.videoStartTime}), state ${videoRef.value.readyState}, currentTime ${appStore.videoPlayCtrl.curTime}`
+            )
+
+            // 创建一个Promise来等待seek完成
+            const waitForSeek = new Promise<void>((resolve) => {
+                const onSeeked = (): void => {
+                    videoRef.value?.removeEventListener('seeked', onSeeked)
+                    videoRef.value?.removeEventListener('error', onError)
+                    resolve()
+                }
+
+                const onError = (): void => {
+                    videoRef.value?.removeEventListener('seeked', onSeeked)
+                    videoRef.value?.removeEventListener('error', onError)
+                    console.error('Video seek error')
+                    resolve() // 即使出错也resolve，以免无限等待
+                }
+
+                videoRef.value?.addEventListener('seeked', onSeeked, { once: true })
+                videoRef.value?.addEventListener('error', onError, { once: true })
+            })
+
+            // 等待seek完成后再恢复播放（如果原来在播放）
+            waitForSeek.then(() => {
+                if (wasPlaying && videoRef.value) {
+                    videoRef.value.play()
+                }
+                console.log(
+                    `seek completed to ${targetTime}, currentTime ${appStore.videoPlayCtrl.curTime}`
+                )
+            })
         }
     }
 )

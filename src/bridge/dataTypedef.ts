@@ -65,7 +65,7 @@ export class File {
     mediaInfo: MediaInfo | null = null // 以json字符串的形式存储在数据库
     splitInfo: SqlitInfos | null = null // 以json字符串的形式存储在数据库
     frameInfo: FrameInfo | null = null // 以json字符串的形式存储在数据库
-    thumbnail: ThumbnailInfo | null = null // 以json字符串的形式存储在数据库
+    thumbnail: ThumbnailInfo = new ThumbnailInfo() // 以json字符串的形式存储在数据库
     eventInfo: FileEventInfo | null = null // 以json字符串的形式存储在数据库
     type: FileType = FileType.Mp4 // 数据类型
     status: FileStatus = FileStatus.Normal // 数据状态
@@ -340,6 +340,7 @@ export enum ThumbStrategy {
     BySize = 'size'
 }
 
+// 项目配置，存储在项目json文件中
 export class Prj {
     name: string = ''
     version: string = '1.0.1'
@@ -523,25 +524,6 @@ export enum WorkPanel {
 export class ClearSltInfoReq {
     clearModel?: string
     bNotClear_curSltVideo?: boolean
-}
-
-// 定义缩略图对象的类型
-export class Thumbnail {
-    path: string = ''
-    name: string = ''
-    indexTime: number = 0
-    checked: boolean = false // 由前端赋值
-    btnName: string = ''
-    static makeDisplayName(thumbName: string): string {
-        const timeStr = thumbName
-        const year = timeStr.slice(0, 4)
-        const month = timeStr.slice(4, 6)
-        const day = timeStr.slice(6, 8)
-        const hour = timeStr.slice(8, 10)
-        const minute = timeStr.slice(10, 12)
-        const second = timeStr.slice(12, 14)
-        return `${year}-${month}-${day} ${hour}:${minute}:${second}`
-    }
 }
 
 export interface CutVideoReq {
