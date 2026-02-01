@@ -1,20 +1,12 @@
 <template>
     <div class="admin-setting-container">
         <div class="search-title-info">
-            <span class="xc-text">工程路径: </span>
-            <span class="xc-text">{{ appStore.prj.path }}: </span><br />
-            <span class="xc-text">仓库: </span><br />
+            <span class="xc-text">项目路径: </span>
+            <span class="xc-text">{{ appStore.prj.path }} </span><br />
+            <!-- <span class="xc-text">仓库: </span><br /> -->
             <div v-for="(repo, index) in dataRepo" :key="index" class="input-container">
-                <span class="xc-text">{{ repo.name }}: </span>
+                <span class="xc-text">仓库路径: </span>
                 <span class="xc-text">{{ repo.path }} </span>
-                <br />
-                <span class="xc-text">缩略图路径: </span>
-                <input
-                    v-model="repo.thumbnailPath"
-                    type="text"
-                    style="width: 80%"
-                    class="xc-text-input"
-                />
             </div>
         </div>
         <hr style="height: 1px; background-color: var(--xc-text-color)" />
