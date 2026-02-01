@@ -48,7 +48,6 @@
 <script lang="ts" setup>
 import { onMounted, ref, watch } from 'vue'
 import '@renderer/assets/common.css'
-import MessageShow from '../util/MessageShow'
 // import { IpcApi } from '../../utils/ipcApi'
 import * as DataTypes from '../../../../bridge/dataTypedef'
 import { useAppStore } from '../../stores/AppStore'
@@ -91,12 +90,12 @@ async function btnclk_sync_work(types: DataTypes.SyncType[] = []): Promise<void>
 
     const response = await util.sync_prj(syncTypes)
     if (response.code !== 0) {
-        MessageShow.error(`同步项目失败: ${response.status}`)
+        util.addToastErr(`同步项目失败: ${response.status}`)
     } else {
         if (response.bOver === false) {
-            MessageShow.info('后台执行中...')
+            util.addToastInfo('后台执行中...')
         } else {
-            MessageShow.success('同步项目成功')
+            util.addToastInfo('同步项目成功')
             await util.start_app()
         }
     }
@@ -194,17 +193,6 @@ onMounted(() => {
     display: flex;
     align-items: center;
     gap: 8px; /* 减少间距 */
-}
-
-.xc-button.primary {
-    background-color: #007acc;
-    border-color: #007acc;
-    padding: 6px 12px; /* 调整按钮内边距 */
-    font-size: 13px; /* 调整按钮字体大小 */
-}
-
-.xc-button.primary:hover {
-    background-color: #006bb3;
 }
 
 /* 针对较长文本进行优化 */
