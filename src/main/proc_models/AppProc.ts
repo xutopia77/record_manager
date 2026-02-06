@@ -221,11 +221,17 @@ async function startHttpSrv(port: number): Promise<void> {
             const timestamp = req.query.thumb
 
             if (videoId == null || timestamp == null) {
+                logger.error(
+                    `Invalid request: missing video or thumb parameter videoId=${videoId},timestamp=${timestamp}`
+                )
                 res.status(400).send('Invalid request: missing video or thumb parameter')
                 return
             }
 
             if (appCfg.prj.dataRepo.length == 0 || appCfg.prj.dataRepo[0].thumbnailPath == '') {
+                logger.error(
+                    `Invalid request: missing thumbnailPath ${appCfg.prj.dataRepo[0].thumbnailPath}`
+                )
                 res.status(400).send('Invalid request: missing thumbnailPath')
             }
 
@@ -236,6 +242,7 @@ async function startHttpSrv(port: number): Promise<void> {
             )
             // 检查数据库文件是否存在
             if (!fs.existsSync(thumbDbPath)) {
+                logger.error(`Database not found: ${thumbDbPath}`)
                 res.status(404).send(`Database not found: ${thumbDbPath}`)
                 return
             }
@@ -800,62 +807,69 @@ class AppProc {
         }
         resp.data = new DataTypes.SyncPrjResp()
 
-        let bNeedSavePrjInfo = false
-        let bNeedGenThumb = false
-        let bNeedClassifyFile = false
-        for (const type of req.data.type) {
-            if (type == DataTypes.SyncType.all) {
-                bNeedSavePrjInfo = true
-                bNeedGenThumb = true
-                bNeedClassifyFile = true
-                break
-            }
-            if (type == DataTypes.SyncType.prjInfo) {
-                bNeedSavePrjInfo = true
-            }
-            if (type == DataTypes.SyncType.thumbnail) {
-                bNeedGenThumb = true
-            }
-            if (type == DataTypes.SyncType.classify) {
-                bNeedClassifyFile = true
-            }
-        }
-
-        if (bNeedSavePrjInfo) {
-            workQueue.set_status(logger.info(`save prj info start`))
-            const prjInfo = req.data.prj
-            if (prjInfo == null) {
-                return logStatusRespReturn(resp.err('prjInfo is null,err'))
-            }
-            const saveResp = await this.save_prj_info(prjInfo)
-            if (saveResp.code !== 0) {
-                return logStatusRespReturn(resp.err(`save prj info error ${saveResp.status}`))
-            }
-            resp.data.prj = prjInfo
-            workQueue.set_status(logger.info(`save prj info ${saveResp.status} ${prjInfo.path}`))
-        }
-
-        if (bNeedClassifyFile) {
-            workQueue.set_status(logger.log('classify file start'))
-            const classifyResp = await this.start_classify_file(req.data.prj.dataRepo)
-            if (classifyResp.code !== 0) {
-                return logStatusRespReturn(resp.err(`classify file error ${classifyResp.status}`))
-            }
-            workQueue.set_status(logger.log('classify file ', classifyResp.status))
-        }
-
-        if (bNeedGenThumb) {
-            for (const repo of req.data.prj.dataRepo) {
-                if (repo.name == '' || repo.path == '') {
-                    return logStatusRespReturn(resp.err('repo name or path is empty'))
+        {
+            let bNeedSavePrjInfo = false
+            let bNeedGenThumb = false
+            let bNeedClassifyFile = false
+            for (const type of req.data.type) {
+                if (type == DataTypes.SyncType.all) {
+                    bNeedSavePrjInfo = true
+                    bNeedGenThumb = true
+                    bNeedClassifyFile = true
+                    break
                 }
-                const traversalFolder = new TraversalFolder()
-                traversalFolder.type = null
-                traversalFolder.repo = repo
-                await traversalFolder.start()
-                await this.start_gen_thumbnail()
+                if (type == DataTypes.SyncType.prjInfo) {
+                    bNeedSavePrjInfo = true
+                }
+                if (type == DataTypes.SyncType.thumbnail) {
+                    bNeedGenThumb = true
+                }
+                if (type == DataTypes.SyncType.classify) {
+                    bNeedClassifyFile = true
+                }
+            }
+
+            if (bNeedSavePrjInfo) {
+                workQueue.set_status(logger.info(`save prj info start`))
+                const prjInfo = req.data.prj
+                if (prjInfo == null) {
+                    return logStatusRespReturn(resp.err('prjInfo is null,err'))
+                }
+                const saveResp = await this.save_prj_info(prjInfo)
+                if (saveResp.code !== 0) {
+                    return logStatusRespReturn(resp.err(`save prj info error ${saveResp.status}`))
+                }
+                resp.data.prj = prjInfo
+                workQueue.set_status(
+                    logger.info(`save prj info ${saveResp.status} ${prjInfo.path}`)
+                )
+            }
+
+            if (bNeedClassifyFile) {
+                workQueue.set_status(logger.log('classify file start'))
+                const classifyResp = await this.start_classify_file(req.data.prj.dataRepo)
+                if (classifyResp.code !== 0) {
+                    return logStatusRespReturn(
+                        resp.err(`classify file error ${classifyResp.status}`)
+                    )
+                }
+                workQueue.set_status(logger.log('classify file ', classifyResp.status))
+            }
+
+            if (bNeedGenThumb) {
+                for (const repo of req.data.prj.dataRepo) {
+                    if (repo.name == '' || repo.path == '') {
+                        return logStatusRespReturn(resp.err('repo name or path is empty'))
+                    }
+                    const traversalFolder = new TraversalFolder()
+                    traversalFolder.type = null
+                    traversalFolder.repo = repo
+                    await traversalFolder.start()
+                    await this.start_gen_thumbnail()
+                }
             }
         }
+
         workQueue.set_status('sync work success')
         workQueue.addResp({ cmd: req.cmd, data: JSON.stringify(resp) })
         return resp
