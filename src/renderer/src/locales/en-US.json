@@ -260,5 +260,30 @@
     "cannotDeleteSystemSegment": "Cannot delete system segment",
     "confirmDeleteSegment": "Are you sure you want to delete the selected segment record?",
     "selectSegmentFirst": "Please select a segment to delete/restore first"
+  },
+  "createPrj": {
+    "returnHome": "Return Home",
+    "repoPath": "Repository Path",
+    "repoPathPlaceholder": "Please enter repository path",
+    "createProject": "Create Project",
+    "description": "After project creation is successful, go to the Function interface to sync the project",
+    "enterDataPath": "Please enter data path",
+    "creatingProject": "Creating project, please wait...",
+    "createProjectSuccess": "Project created successfully",
+    "createProjectFailed": "Project creation failed"
+  },
+  "adminSearch": {
+    "returnHome": "Return Home",
+    "videoClipManagement": "Video Clip Management"
+  },
+  "queryForm": {
+    "start": "Start",
+    "end": "End",
+    "query": "Query",
+    "overallDisplay": "Overall Display",
+    "dailyDisplay": "Daily Display"
+  },
+  "videoAction": {
+    "startDetection": "Start Detection"
   }
 }

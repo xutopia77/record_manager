@@ -260,5 +260,30 @@
     "cannotDeleteSystemSegment": "不能删除系统片段",
     "confirmDeleteSegment": "确定要删除当前选中的片段信息记录吗？",
     "selectSegmentFirst": "请先选择要删除/恢复的片段"
+  },
+  "createPrj": {
+    "returnHome": "返回主页",
+    "repoPath": "仓库路径",
+    "repoPathPlaceholder": "请输入仓库路径",
+    "createProject": "创建项目",
+    "description": "项目创建成功后，需要到 功能 界面中，项目同步",
+    "enterDataPath": "请输入数据路径",
+    "creatingProject": "创建项目中，请稍候...",
+    "createProjectSuccess": "创建项目成功",
+    "createProjectFailed": "创建项目失败"
+  },
+  "adminSearch": {
+    "returnHome": "返回主页",
+    "videoClipManagement": "录像片段管理"
+  },
+  "queryForm": {
+    "start": "开始",
+    "end": "结束",
+    "query": "查询",
+    "overallDisplay": "整体展示",
+    "dailyDisplay": "按天展示"
+  },
+  "videoAction": {
+    "startDetection": "开始检测"
   }
 }
