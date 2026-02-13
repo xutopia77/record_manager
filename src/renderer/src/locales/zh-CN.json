@@ -177,5 +177,10 @@
     "operations": "操作",
     "edit": "编辑",
     "delete": "删除"
+  },
+  "pagination": {
+    "pageInfo": "第 {current} 页 / 共 {total} 页 (共 {count} 条)",
+    "jumpTo": "跳转",
+    "itemsPerPage": "每页"
   }
 }
