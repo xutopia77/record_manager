@@ -1,6 +1,12 @@
 录像文件管理软件使用手册
 
+[简体中文](doc/readme-zh.md) | [English](doc/readme-en.md) 
+
 # 1 简介
+
+[Official Website](https://xutopia77.github.io/page/record_manage/)
+
+[Download](https://github.com/xutopia77/record_manager/releases/download/latest/record-manager-latest-win.zip)
 
 ## 1.1 软件概述
 

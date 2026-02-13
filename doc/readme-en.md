@@ -2,9 +2,11 @@
 
 ## 1 Introduction
 
-### 1.1 Software Overview
-
 [Official Website](https://xutopia77.github.io/page/record_manage/)
+
+[Download](https://github.com/xutopia77/record_manager/releases/download/latest/record-manager-latest-win.zip)
+
+### 1.1 Software Overview
 
 Record Manager is a desktop application designed for security surveillance video file management. The software provides core functions such as fast video retrieval, intelligent classification management, tag annotation, keyframe extraction and storage. Highly suitable for managing Xiaomi camera recording videos. It also supports recording files from other cameras.
 
