@@ -151,5 +151,23 @@
     "thumbnailManagement": "缩略图管理",
     "smallFileOrganization": "小文件整理",
     "settings": "设置"
+  },
+  "adminSetting": {
+    "projectInfo": "项目信息",
+    "projectPath": "项目路径",
+    "repoPath": "仓库路径",
+    "syncOptions": "同步选项",
+    "fileOrganize": "文件规整",
+    "generateThumbnail": "生成缩略图",
+    "syncProject": "同步项目",
+    "stopSync": "停止同步",
+    "repoMode": "仓库模式",
+    "normalMode": "正常",
+    "trashMode": "回收站",
+    "setRepoMode": "设置仓库模式",
+    "stopSyncBackground": "停止同步，后台执行中",
+    "stopSyncFailed": "停止同步失败",
+    "syncProjectFailed": "同步项目失败",
+    "backgroundExecuting": "后台执行中..."
   }
 }

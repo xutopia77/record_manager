@@ -151,5 +151,23 @@
     "thumbnailManagement": "Thumbnail Management",
     "smallFileOrganization": "Small File Organization",
     "settings": "Settings"
+  },
+  "adminSetting": {
+    "projectInfo": "Project Information",
+    "projectPath": "Project Path",
+    "repoPath": "Repository Path",
+    "syncOptions": "Sync Options",
+    "fileOrganize": "File Organization",
+    "generateThumbnail": "Generate Thumbnail",
+    "syncProject": "Sync Project",
+    "stopSync": "Stop Sync",
+    "repoMode": "Repository Mode",
+    "normalMode": "Normal",
+    "trashMode": "Trash",
+    "setRepoMode": "Set Repository Mode",
+    "stopSyncBackground": "Stopping sync, executing in background",
+    "stopSyncFailed": "Failed to stop sync",
+    "syncProjectFailed": "Failed to sync project",
+    "backgroundExecuting": "Executing in background..."
   }
 }
