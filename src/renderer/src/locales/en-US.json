@@ -143,5 +143,13 @@
     "fileNotFound": "File not found",
     "operationSuccess": "Operation successful",
     "operationFailed": "Operation failed"
+  },
+  "adminNav": {
+    "returnHome": "Return Home",
+    "projectSettings": "Project Settings",
+    "tagManagement": "Tag Management",
+    "thumbnailManagement": "Thumbnail Management",
+    "smallFileOrganization": "Small File Organization",
+    "settings": "Settings"
   }
 }

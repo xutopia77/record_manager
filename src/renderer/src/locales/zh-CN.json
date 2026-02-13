@@ -143,5 +143,13 @@
     "fileNotFound": "文件未找到",
     "operationSuccess": "操作成功",
     "operationFailed": "操作失败"
+  },
+  "adminNav": {
+    "returnHome": "返回主页",
+    "projectSettings": "项目设置",
+    "tagManagement": "标签管理",
+    "thumbnailManagement": "缩略图管理",
+    "smallFileOrganization": "小文件整理",
+    "settings": "设置"
   }
 }
