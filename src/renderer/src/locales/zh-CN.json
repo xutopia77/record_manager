@@ -182,5 +182,15 @@
     "pageInfo": "第 {current} 页 / 共 {total} 页 (共 {count} 条)",
     "jumpTo": "跳转",
     "itemsPerPage": "每页"
+  },
+  "recentMessages": {
+    "title": "最近消息",
+    "clearAll": "清空所有",
+    "close": "关闭",
+    "noMessages": "暂无消息",
+    "justNow": "刚刚",
+    "minutesAgo": "{minutes}分钟前",
+    "hoursAgo": "{hours}小时前",
+    "daysAgo": "{days}天前"
   }
 }
