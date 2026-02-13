@@ -31,7 +31,27 @@
     "settings": "设置",
     "admin": "管理员",
     "search": "搜索",
-    "thumbnails": "缩略图管理"
+    "thumbnails": "缩略图管理",
+    "repositoryFiles": "仓库文件",
+    "recycleBinFiles": "回收站文件",
+    "viewRecentMessages": "查看最近消息提醒",
+    "openProjectFailed": "打开项目失败",
+    "backgroundExecuting": "后台执行中...",
+    "startupFailed": "启动失败",
+    "openProjectSuccess": "打开项目成功",
+    "menuItems": {
+      "createProject": "创建项目",
+      "openProject": "打开项目",
+      "exit": "退出",
+      "view": "视图",
+      "fileList": "文件列表",
+      "operationPanel": "操作面板",
+      "thumbnailView": "缩略图查看",
+      "videoView": "视频查看",
+      "returnHome": "返回主页",
+      "function": "功能",
+      "about": "关于"
+    }
   },
   "settings": {
     "title": "应用设置",
@@ -115,29 +135,6 @@
     "operations": {
       "save": "保存设置",
       "reset": "恢复默认"
-    }
-  },
-  "navigation": {
-    "home": "首页",
-    "file": "文件",
-    "projects": "项目管理",
-    "videos": "视频管理",
-    "settings": "设置",
-    "admin": "管理员",
-    "search": "搜索",
-    "thumbnails": "缩略图管理",
-    "menuItems": {
-      "createProject": "创建项目",
-      "openProject": "打开项目",
-      "exit": "退出",
-      "view": "视图",
-      "fileList": "文件列表",
-      "operationPanel": "操作面板",
-      "thumbnailView": "缩略图查看",
-      "videoView": "视频查看",
-      "returnHome": "返回主页",
-      "function": "功能",
-      "about": "关于"
     }
   },
   "messages": {

@@ -71,7 +71,7 @@
             <button
                 class="xc-button"
                 style="border: none"
-                title="查看最近消息提醒"
+                :title="t('navigation.viewRecentMessages')"
                 @click="appStore.bPageResentMsg = true"
             >
                 🔔
@@ -128,7 +128,7 @@ let statusInfoTitle = ref<string>('')
 let statusInfo = ref<string>('')
 
 function navContentMake(): void {
-    statusInfoTitle.value = appStore.prj.repoType == Dty.RepoType.Normal ? '仓库文件' : '回收站文件'
+    statusInfoTitle.value = appStore.prj.repoType == Dty.RepoType.Normal ? t('navigation.repositoryFiles') : t('navigation.recycleBinFiles')
     const repoStr = appStore.prj.repoType == Dty.RepoType.Normal ? '🗄️' : '🗑️'
     statusInfo.value = `${repoStr} ${appStore.homeNavContent}`
 }
@@ -162,17 +162,17 @@ const btn_openPrj = async (): Promise<void> => {
     }
     const response: Dty.Resp = await IpcApi.trigger_event(req)
     if (response.code != 0) {
-        console.log('打开项目失败')
+        console.log(t('navigation.openProjectFailed'))
     } else {
         if (response.bOver == false) {
-            util.addToastInfo('后台执行中...')
+            util.addToastInfo(t('navigation.backgroundExecuting'))
         } else {
             const req = await util.start_app()
             if (req.code != 0) {
-                util.addToastErr(`启动失败 ${req.status}`)
+                util.addToastErr(`${t('navigation.startupFailed')} ${req.status}`)
                 return
             }
-            util.addToastInfo('打开项目成功')
+            util.addToastInfo(t('navigation.openProjectSuccess'))
         }
     }
 }

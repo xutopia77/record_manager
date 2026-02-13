@@ -31,7 +31,27 @@
     "settings": "Settings",
     "admin": "Admin",
     "search": "Search",
-    "thumbnails": "Thumbnails"
+    "thumbnails": "Thumbnails",
+    "repositoryFiles": "Repository Files",
+    "recycleBinFiles": "Recycle Bin Files",
+    "viewRecentMessages": "View Recent Messages",
+    "openProjectFailed": "Failed to open project",
+    "backgroundExecuting": "Executing in background...",
+    "startupFailed": "Startup failed",
+    "openProjectSuccess": "Project opened successfully",
+    "menuItems": {
+      "createProject": "Create Project",
+      "openProject": "Open Project",
+      "exit": "Exit",
+      "view": "View",
+      "fileList": "File List",
+      "operationPanel": "Operation Panel",
+      "thumbnailView": "Thumbnail View",
+      "videoView": "Video View",
+      "returnHome": "Return Home",
+      "function": "Function",
+      "about": "About"
+    }
   },
   "project": {
     "title": "Project",
