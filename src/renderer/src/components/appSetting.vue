@@ -34,6 +34,7 @@ async function btnclk_saveSettings(): Promise<void> {
     // todo  is need optimize
     console.log(`save set`)
     appStore.prj.language = selectedLanguage.value
+    localStorage.setItem('locale', appStore.prj.language)
     window.location.reload()
     return
 }
@@ -41,12 +42,12 @@ async function btnclk_saveSettings(): Promise<void> {
 async function btnclk_resetSettings(): Promise<void> {
     // todo  is need optimize
     console.log(`reset set`)
+    appStore.prj.language = 'zh-CN'
 }
 
 // ------------------------------------------------
 
-onMounted(() => {
-})
+onMounted(() => {})
 </script>
 
 <style scoped>
