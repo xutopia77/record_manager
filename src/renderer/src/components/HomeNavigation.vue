@@ -98,7 +98,6 @@ const router = useRouter()
 
 const appStore = useAppStore()
 import { IpcApi } from '../utils/ipcApi'
-import MessageShow from './util/MessageShow'
 import * as Dty from '../../../bridge/dataTypedef'
 
 import { useI18n } from 'vue-i18n'
@@ -166,14 +165,14 @@ const btn_openPrj = async (): Promise<void> => {
         console.log('打开项目失败')
     } else {
         if (response.bOver == false) {
-            MessageShow.success('后台执行中...')
+            util.addToastInfo('后台执行中...')
         } else {
             const req = await util.start_app()
             if (req.code != 0) {
-                MessageShow.error(`启动失败 ${req.status}`)
+                util.addToastErr(`启动失败 ${req.status}`)
                 return
             }
-            MessageShow.success('打开项目成功')
+            util.addToastInfo('打开项目成功')
         }
     }
 }

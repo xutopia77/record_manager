@@ -24,7 +24,6 @@
     </div>
 </template>
 <script setup lang="ts">
-import MessageShow from '@renderer/components/util/MessageShow.vue'
 // import util from '@renderer/utils/util'
 import { ref, computed } from 'vue'
 import { useAppStore } from '@renderer/stores/AppStore'
@@ -54,7 +53,7 @@ const btn_addTag = async (): Promise<void> => {
         tagName = newTag.value.trim()
     }
     if (tagName == '') {
-        MessageShow.warn(`标签名不能为空`)
+        util.addToastErr(`标签名不能为空`)
         return
     }
     for (const item of appStore.curCheckedVideo) {
@@ -65,7 +64,7 @@ const btn_addTag = async (): Promise<void> => {
         req.fileTags.push(fileTag)
     }
     if (req.fileTags.length === 0) {
-        MessageShow.warn(`请选择文件`)
+        util.addToastErr(`请选择文件`)
         return
     }
     await util.file_tags_set(req, { bNeedUpdate: true })
