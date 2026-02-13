@@ -15,6 +15,9 @@
         <router-link to="/tiny_file_db" class="no-underline-link">
             <button class="xc-button">小文件整理</button>
         </router-link>
+        <router-link to="/app_setting" class="no-underline-link">
+            <button class="xc-button">设置</button>
+        </router-link>
     </div>
 </template>
 

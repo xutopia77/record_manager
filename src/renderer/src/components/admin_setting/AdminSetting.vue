@@ -48,9 +48,9 @@ import { onMounted, ref, watch } from 'vue'
 import '@renderer/assets/common.css'
 import { IpcApi } from '../../utils/ipcApi'
 import * as Dty from '../../../../bridge/dataTypedef'
-import { useAppStore } from '../../stores/AppStore'
-import util from '@renderer/utils/util'
+import { useAppStore } from '@renderer/stores/AppStore'
 const appStore = useAppStore()
+import util from '@renderer/utils/util'
 
 const dataRepo = ref<Dty.DataRepo[]>([
     {

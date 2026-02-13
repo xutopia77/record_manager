@@ -3,7 +3,8 @@
         <div class="btn-container">
             <div class="menu-item dropdown" @click="toggleDropdown($event, 'home')">
                 <!-- 文件 -->
-                <span class="xc-text">文件</span>
+                <!-- <span class="xc-text">文件</span> -->
+                <span class="xc-text">{{ t('navigation.file') }}</span>
                 <div
                     ref="dropdownMenuRefHome"
                     class="dropdown-menu"
@@ -95,6 +96,14 @@ const appStore = useAppStore()
 import { IpcApi } from '../utils/ipcApi'
 import MessageShow from './util/MessageShow'
 import * as Dty from '../../../bridge/dataTypedef'
+
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
+
+// const changeLang = () => {
+//   locale.value = locale.value === 'zh-CN' ? 'en-US' : 'zh-CN'
+// }
 
 // 控制下拉菜单是否显示
 const isDropdownOpen = ref<{ home: boolean; video: boolean; view: boolean }>({

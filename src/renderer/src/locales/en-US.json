@@ -1,0 +1,89 @@
+{
+  "common": {
+    "appName": "Video File Management System",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "create": "Create",
+    "search": "Search",
+    "confirm": "Confirm",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "close": "Close",
+    "refresh": "Refresh",
+    "loading": "Loading...",
+    "success": "Success",
+    "error": "Error",
+    "warning": "Warning",
+    "info": "Info",
+    "yes": "Yes",
+    "no": "No"
+  },
+  "navigation": {
+    "home": "Home",
+    "file": "File",
+    "projects": "Projects",
+    "videos": "Videos",
+    "settings": "Settings",
+    "admin": "Admin",
+    "search": "Search",
+    "thumbnails": "Thumbnails"
+  },
+  "project": {
+    "title": "Project",
+    "create": "Create Project",
+    "open": "Open Project",
+    "name": "Project Name",
+    "path": "Project Path",
+    "storagePath": "Storage Path",
+    "sync": "Sync Project",
+    "syncSuccess": "Project sync successful",
+    "syncError": "Project sync failed"
+  },
+  "video": {
+    "title": "Video",
+    "play": "Play",
+    "pause": "Pause",
+    "stop": "Stop",
+    "speed": "Speed",
+    "frameByFrame": "Frame by Frame",
+    "keyFrame": "Key Frame",
+    "duration": "Duration",
+    "size": "Size",
+    "resolution": "Resolution",
+    "deleteConfirm": "Are you sure to delete this video?",
+    "deleteSuccess": "Video deleted successfully",
+    "deleteError": "Failed to delete video"
+  },
+  "thumbnail": {
+    "title": "Thumbnail",
+    "generate": "Generate Thumbnail",
+    "view": "View Thumbnail",
+    "regenerate": "Regenerate",
+    "generated": "Thumbnail generation completed"
+  },
+  "tag": {
+    "title": "Tag",
+    "manage": "Tag Management",
+    "add": "Add Tag",
+    "name": "Tag Name",
+    "color": "Tag Color",
+    "assign": "Assign Tag"
+  },
+  "status": {
+    "normal": "Normal",
+    "deleted": "Deleted",
+    "error": "Error",
+    "destroyed": "Destroyed",
+    "nothing": "Non-existent"
+  },
+  "messages": {
+    "welcome": "Welcome to Video File Management System",
+    "noVideos": "No video files available",
+    "fileNotFound": "File not found",
+    "operationSuccess": "Operation successful",
+    "operationFailed": "Operation failed"
+  }
+}
