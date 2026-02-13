@@ -19,7 +19,8 @@
     "warning": "警告",
     "info": "信息",
     "yes": "是",
-    "no": "否"
+    "no": "否",
+    "operations": "操作"
   },
   "navigation": {
     "home": "首页",
@@ -101,6 +102,19 @@
     "error": "错误",
     "destroyed": "已销毁",
     "nothing": "不存在"
+  },
+  "appSetting": {
+    "title": "程序设置",
+    "interface": "界面设置",
+    "language": "界面语言",
+    "languageOptions": {
+      "chinese": "中文",
+      "english": "English"
+    },
+    "operations": {
+      "save": "保存设置",
+      "reset": "恢复默认"
+    }
   },
   "messages": {
     "welcome": "欢迎使用视频文件智能管理系统",

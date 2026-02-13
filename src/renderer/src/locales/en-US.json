@@ -19,7 +19,8 @@
     "warning": "Warning",
     "info": "Info",
     "yes": "Yes",
-    "no": "No"
+    "no": "No",
+    "operations": "Operations"
   },
   "navigation": {
     "home": "Home",
@@ -78,6 +79,19 @@
     "error": "Error",
     "destroyed": "Destroyed",
     "nothing": "Non-existent"
+  },
+  "appSetting": {
+    "title": "Application Settings",
+    "interface": "Interface Settings",
+    "language": "Interface Language",
+    "languageOptions": {
+      "chinese": "中文",
+      "english": "English"
+    },
+    "operations": {
+      "save": "Save Settings",
+      "reset": "Reset to Default"
+    }
   },
   "messages": {
     "welcome": "Welcome to Video File Management System",

@@ -32,5 +32,3 @@ const i18n = createI18n<[MessageSchema], 'zh-CN' | 'en-US'>({
 
 export default i18n
 
-// 导出类型，供其他地方使用
-export type Locale = 'zh-CN' | 'en-US'
