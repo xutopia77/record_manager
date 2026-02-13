@@ -20,7 +20,8 @@
     "info": "信息",
     "yes": "是",
     "no": "否",
-    "operations": "操作"
+    "operations": "操作",
+    "currentVersion": "当前版本"
   },
   "navigation": {
     "home": "首页",
@@ -114,6 +115,29 @@
     "operations": {
       "save": "保存设置",
       "reset": "恢复默认"
+    }
+  },
+  "navigation": {
+    "home": "首页",
+    "file": "文件",
+    "projects": "项目管理",
+    "videos": "视频管理",
+    "settings": "设置",
+    "admin": "管理员",
+    "search": "搜索",
+    "thumbnails": "缩略图管理",
+    "menuItems": {
+      "createProject": "创建项目",
+      "openProject": "打开项目",
+      "exit": "退出",
+      "view": "视图",
+      "fileList": "文件列表",
+      "operationPanel": "操作面板",
+      "thumbnailView": "缩略图查看",
+      "videoView": "视频查看",
+      "returnHome": "返回主页",
+      "function": "功能",
+      "about": "关于"
     }
   },
   "messages": {

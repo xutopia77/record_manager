@@ -394,7 +394,7 @@ export type LangType = 'zh-CN' | 'en-US'
 // 项目配置，存储在项目json文件中
 export class Prj {
     name: string = ''
-    version: string = '2.2.1'
+    version: string = '3.0.0'
     path: string = '' //  project path
     thumbStrategy: ThumbStrategy = ThumbStrategy.BySize // 缩略图策略
     thumbEachSec: number = 0.1 // 每多少秒生成一张缩略图

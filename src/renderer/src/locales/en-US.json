@@ -20,7 +20,8 @@
     "info": "Info",
     "yes": "Yes",
     "no": "No",
-    "operations": "Operations"
+    "operations": "Operations",
+    "currentVersion": "Current Version"
   },
   "navigation": {
     "home": "Home",
@@ -85,12 +86,35 @@
     "interface": "Interface Settings",
     "language": "Interface Language",
     "languageOptions": {
-      "chinese": "中文",
+      "chinese": "Chinese",
       "english": "English"
     },
     "operations": {
       "save": "Save Settings",
       "reset": "Reset to Default"
+    }
+  },
+  "navigation": {
+    "home": "Home",
+    "file": "File",
+    "projects": "Projects",
+    "videos": "Videos",
+    "settings": "Settings",
+    "admin": "Admin",
+    "search": "Search",
+    "thumbnails": "Thumbnails",
+    "menuItems": {
+      "createProject": "Create Project",
+      "openProject": "Open Project",
+      "exit": "Exit",
+      "view": "View",
+      "fileList": "File List",
+      "operationPanel": "Operation Panel",
+      "thumbnailView": "Thumbnail View",
+      "videoView": "Video View",
+      "returnHome": "Return Home",
+      "function": "Function",
+      "about": "About"
     }
   },
   "messages": {

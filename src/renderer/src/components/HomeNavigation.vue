@@ -11,52 +11,56 @@
                     :class="{ show: isDropdownOpen['home'] }"
                 >
                     <button class="xc-button menu-button" @click.stop="btn_createPrj">
-                        创建项目
+                        {{ t('navigation.menuItems.createProject') }}
                     </button>
                     <button class="xc-button menu-button" @click.stop="btn_openPrj">
-                        打开项目
+                        {{ t('navigation.menuItems.openProject') }}
                     </button>
-                    <button class="xc-button menu-button" @click.stop="exitApp">退出</button>
+                    <button class="xc-button menu-button" @click.stop="exitApp">
+                        {{ t('navigation.menuItems.exit') }}
+                    </button>
                 </div>
             </div>
             <div class="menu-item dropdown" @click="toggleDropdown($event, 'view')">
-                <span class="xc-text">视图</span>
+                <span class="xc-text">{{ t('navigation.menuItems.view') }}</span>
                 <div
                     ref="dropdownMenuRefView"
                     class="dropdown-menu"
                     :class="{ show: isDropdownOpen['view'] }"
                 >
                     <button class="xc-button menu-button" @click.stop="btn_viewChange('list_show')">
-                        文件列表
+                        {{ t('navigation.menuItems.fileList') }}
                     </button>
                     <button
                         class="xc-button menu-button"
                         @click.stop="btn_viewChange('operate_show')"
                     >
-                        操作面板
+                        {{ t('navigation.menuItems.operationPanel') }}
                     </button>
                     <button
                         class="xc-button menu-button"
                         @click.stop="btn_viewChange('thumb_show')"
                     >
-                        缩略图查看🖼️
+                        {{ t('navigation.menuItems.thumbnailView') }}🖼️
                     </button>
                     <button
                         class="xc-button menu-button"
                         @click.stop="btn_viewChange('video_show')"
                     >
-                        视频查看🎞️
+                        {{ t('navigation.menuItems.videoView') }}🎞️
                     </button>
                     <button class="xc-button menu-button" @click.stop="btn_viewChange('bck_home')">
-                        返回主页
+                        {{ t('navigation.menuItems.returnHome') }}
                     </button>
                 </div>
             </div>
             <div class="menu-item">
-                <span class="xc-text" @click="btn_function()">功能</span>
+                <span class="xc-text" @click="btn_function()">{{
+                    t('navigation.menuItems.function')
+                }}</span>
             </div>
             <div class="menu-item" @click="showAboutModal">
-                <span class="xc-text">关于</span>
+                <span class="xc-text">{{ t('navigation.menuItems.about') }}</span>
             </div>
         </div>
 
@@ -77,9 +81,9 @@
     <!-- 关于模态框 -->
     <div v-if="isAboutModalVisible" class="modal-overlay" @click.self="hideAboutModal">
         <div class="modal-content">
-            <h2>版本信息</h2>
-            <p>当前版本：1.0.0</p>
-            <button @click="hideAboutModal">取消</button>
+            <h2>{{ t('navigation.menuItems.about') }} {{ t('common.info') }}</h2>
+            <p>{{ t('common.currentVersion') }}：{{ appStore.prj.version || '1.0.0' }}</p>
+            <button @click="hideAboutModal">{{ t('common.cancel') }}</button>
         </div>
     </div>
 </template>
@@ -125,8 +129,7 @@ let statusInfoTitle = ref<string>('')
 let statusInfo = ref<string>('')
 
 function navContentMake(): void {
-    statusInfoTitle.value =
-        appStore.prj.repoType == Dty.RepoType.Normal ? '仓库文件' : '回收站文件'
+    statusInfoTitle.value = appStore.prj.repoType == Dty.RepoType.Normal ? '仓库文件' : '回收站文件'
     const repoStr = appStore.prj.repoType == Dty.RepoType.Normal ? '🗄️' : '🗑️'
     statusInfo.value = `${repoStr} ${appStore.homeNavContent}`
 }
