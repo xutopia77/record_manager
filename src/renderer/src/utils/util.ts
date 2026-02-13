@@ -1,10 +1,18 @@
 import type { AppStore } from '../stores/AppStore'
-import { useI18n } from 'vue-i18n'
 let appStore: AppStore
-const { t } = useI18n()
 
 import * as Dty from '../../../bridge/dataTypedef'
 import { IpcApi } from './ipcApi'
+
+// 创建一个可以在Vue组件中使用的国际化函数
+let t: (key: string, values?: Record<string, unknown>) => string = (key: string) => key
+
+// 设置国际化函数，由Vue组件调用
+export function setI18nFunction(
+    i18nFunction: (key: string, values?: Record<string, unknown>) => string
+): void {
+    t = i18nFunction
+}
 
 async function getKeyFrameInfo(): Promise<Dty.Resp<Dty.FrameInfo>> {
     const resp = new Dty.Resp<Dty.FrameInfo>()
@@ -564,7 +572,8 @@ class Util {
         if (response.code === 1001) {
             return
         }
-        const delStr = reqInfo.type == 'destroy' ? t('util.permanentlyDelete') : t('util.moveToTrash')
+        const delStr =
+            reqInfo.type == 'destroy' ? t('util.permanentlyDelete') : t('util.moveToTrash')
         if (response.code !== 0) {
             util.addToastErr(`${delStr} ${t('util.failed')}: ${response.status}`)
         } else {
@@ -589,7 +598,8 @@ class Util {
         if (response.code === 1001) {
             return
         }
-        const delStr = reqInfo.type == 'destroy' ? t('util.permanentlyDelete') : t('util.moveToTrash')
+        const delStr =
+            reqInfo.type == 'destroy' ? t('util.permanentlyDelete') : t('util.moveToTrash')
         if (response.code !== 0) {
             util.addToastErr(`${delStr} ${t('util.failed')}: ${response.status}`)
         } else {
@@ -959,7 +969,9 @@ class Util {
                             if (null != response.data) {
                                 appStore.curSltVideo.frameInfo = response.data
                                 console.log('get key frame info', appStore.curSltVideo.frameInfo)
-                                util.addToastInfo(`${t('util.getKeyFrameInfoCompleted')}:${response.status}`)
+                                util.addToastInfo(
+                                    `${t('util.getKeyFrameInfoCompleted')}:${response.status}`
+                                )
                             }
                         }
                     }
@@ -1013,7 +1025,10 @@ class Util {
         } else if (viewModel === 'thumbnail') {
             appStore.curViewModel = 'thumbnail'
         }
-        const showCtx = appStore.curViewModel === 'video' ? t('util.videoPlaybackMode') : t('util.thumbnailMode')
+        const showCtx =
+            appStore.curViewModel === 'video'
+                ? t('util.videoPlaybackMode')
+                : t('util.thumbnailMode')
         util.addToast(showCtx, 'info')
     }
 }
