@@ -1,5 +1,7 @@
 # Video File Management Software User Manual
 
+[简体中文](doc/readme-zh.md) | [English](doc/readme-en.md) 
+
 ## 1 Introduction
 
 ### 1.1 Software Overview
