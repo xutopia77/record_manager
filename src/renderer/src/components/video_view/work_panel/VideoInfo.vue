@@ -3,7 +3,7 @@
         <div class="tag-info">
             <input
                 v-model="newTag"
-                placeholder="输入标签确认添加"
+                :placeholder="t('videoInfo.tagPlaceholder')"
                 class="xc-text-input"
                 type="text"
                 @keyup.enter="btn_addTag"
@@ -27,16 +27,19 @@
 // import util from '@renderer/utils/util'
 import { ref, computed } from 'vue'
 import { useAppStore } from '@renderer/stores/AppStore'
+import { useI18n } from 'vue-i18n'
 const appStore = useAppStore()
 import * as Dty from '../../../../../bridge/dataTypedef'
 import util from '@renderer/utils/util'
+
+const { t } = useI18n()
 // ------------------------------------
 const fileTags = computed(() => {
     if (appStore.curSltVideo == null) return []
     return appStore.curSltVideo.tags
 })
 function btn_removeTag(tag: Dty.Tag): void {
-    console.log(`remove tag ${tag.name}`)
+    console.log(t('videoInfo.removeTag', { name: tag.name }))
     // if (appStore.curSltFile?.id == null) return
     // const req: DatType.FilesTagSetReq = {
     //     fileIds: [appStore.curSltFile.id],
@@ -53,7 +56,7 @@ const btn_addTag = async (): Promise<void> => {
         tagName = newTag.value.trim()
     }
     if (tagName == '') {
-        util.addToastErr(`标签名不能为空`)
+        util.addToastErr(t('videoInfo.tagNameEmpty'))
         return
     }
     for (const item of appStore.curCheckedVideo) {
@@ -64,7 +67,7 @@ const btn_addTag = async (): Promise<void> => {
         req.fileTags.push(fileTag)
     }
     if (req.fileTags.length === 0) {
-        util.addToastErr(`请选择文件`)
+        util.addToastErr(t('videoInfo.selectFileFirst'))
         return
     }
     await util.file_tags_set(req, { bNeedUpdate: true })

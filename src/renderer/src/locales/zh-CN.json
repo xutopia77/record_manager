@@ -220,5 +220,45 @@
     "stopSuccess": "文件整理停止触发成功",
     "startError": "文件整理",
     "startSuccess": "文件整理开始成功"
+  },
+  "playCtrl": {
+    "selectVideoFirst": "请先选择一个视频",
+    "levelRangeError": "等级只能是1-5",
+    "selectFileFirst": "请选择文件",
+    "noVideoFiles": "没有视频文件",
+    "alreadyFirstFile": "已经是第一个文件",
+    "alreadyLastFile": "已经是最后一个文件",
+    "deleteMethod": "删除方式",
+    "moveToTrash": "移动到回收站",
+    "moveToTrashWithThumb": "移动到回收站，同时删除缩略图",
+    "noSelectedFile": "没有选择的文件"
+  },
+  "playProgressBar": {
+    "openVideoFirst": "请先打开视频文件",
+    "getKeyFrameError": "获取关键帧信息错误",
+    "processing": "正在处理...",
+    "getKeyFrameSuccess": "获取关键帧信息成功"
+  },
+  "thumbnailView": {
+    "unchecked": "⬜",
+    "checked": "✅",
+    "curVideoThumbnailNull": "当前视频缩略图为空"
+  },
+  "videoList": {
+    "selectionChanged": "视频 {name} 已{status}",
+    "levelColorMapping": "等级名称: {levelName}, 目标颜色: {targetColor}"
+  },
+  "videoInfo": {
+    "tagPlaceholder": "输入标签确认添加",
+    "removeTag": "移除标签 {name}",
+    "tagNameEmpty": "标签名不能为空",
+    "selectFileFirst": "请选择文件"
+  },
+  "videoOperatePanel": {
+    "selectVideoFirst": "请先选择视频",
+    "noSplitInfo": "没有分段信息",
+    "cannotDeleteSystemSegment": "不能删除系统片段",
+    "confirmDeleteSegment": "确定要删除当前选中的片段信息记录吗？",
+    "selectSegmentFirst": "请先选择要删除/恢复的片段"
   }
 }

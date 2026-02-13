@@ -220,5 +220,45 @@
     "stopSuccess": "File organization stop triggered successfully",
     "startError": "File organization",
     "startSuccess": "File organization started successfully"
+  },
+  "playCtrl": {
+    "selectVideoFirst": "Please select a video first",
+    "levelRangeError": "Level must be between 1-5",
+    "selectFileFirst": "Please select a file",
+    "noVideoFiles": "No video files",
+    "alreadyFirstFile": "Already the first file",
+    "alreadyLastFile": "Already the last file",
+    "deleteMethod": "Delete method",
+    "moveToTrash": "Move to trash",
+    "moveToTrashWithThumb": "Move to trash and delete thumbnails",
+    "noSelectedFile": "No selected file"
+  },
+  "playProgressBar": {
+    "openVideoFirst": "Please open a video file first",
+    "getKeyFrameError": "Get key frame info error",
+    "processing": "Processing...",
+    "getKeyFrameSuccess": "Get key frame info success"
+  },
+  "thumbnailView": {
+    "unchecked": "⬜",
+    "checked": "✅",
+    "curVideoThumbnailNull": "Current video thumbnail is null"
+  },
+  "videoList": {
+    "selectionChanged": "Video {name} is {status}",
+    "levelColorMapping": "Level name: {levelName}, Target color: {targetColor}"
+  },
+  "videoInfo": {
+    "tagPlaceholder": "Enter tag to add",
+    "removeTag": "Remove tag {name}",
+    "tagNameEmpty": "Tag name cannot be empty",
+    "selectFileFirst": "Please select a file"
+  },
+  "videoOperatePanel": {
+    "selectVideoFirst": "Please select a video first",
+    "noSplitInfo": "No split information",
+    "cannotDeleteSystemSegment": "Cannot delete system segment",
+    "confirmDeleteSegment": "Are you sure you want to delete the selected segment record?",
+    "selectSegmentFirst": "Please select a segment to delete/restore first"
   }
 }
