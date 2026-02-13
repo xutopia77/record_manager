@@ -285,5 +285,36 @@
   },
   "videoAction": {
     "startDetection": "开始检测"
+  },
+  "util": {
+    "openFolderFailed": "打开文件夹失败",
+    "processing": "正在处理...",
+    "noVideoFileSelected": "当前没有选择视频文件",
+    "selectVideoFirst": "请先选择一个视频",
+    "clipFailed": "剪辑失败",
+    "clipSuccess": "剪辑成功",
+    "permanentlyDelete": "彻底删除",
+    "moveToTrash": "移到回收站",
+    "failed": "失败",
+    "success": "成功",
+    "getVideoInfoFailed": "获取视频信息失败",
+    "syncStarted": "同步开始",
+    "noFiles": "没有文件",
+    "currentMode": "当前模式",
+    "trashMode": "回收站",
+    "normalMode": "正常",
+    "getFileListFailed": "获取文件列表失败",
+    "getTagListFailed": "获取标签列表失败",
+    "setTagFailed": "设置标签失败",
+    "setTagSuccess": "设置标签成功",
+    "openFolderSuccess": "打开文件夹成功",
+    "videoCropFailed": "视频裁剪失败",
+    "videoCropCompleted": "视频裁剪完成",
+    "deleteFailed": "删除失败",
+    "deleteCompleted": "删除完成",
+    "getKeyFrameInfoFailed": "获取关键帧信息失败",
+    "getKeyFrameInfoCompleted": "获取关键帧信息完成",
+    "videoPlaybackMode": "视频播放模式",
+    "thumbnailMode": "缩略图模式"
   }
 }

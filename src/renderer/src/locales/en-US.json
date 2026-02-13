@@ -285,5 +285,36 @@
   },
   "videoAction": {
     "startDetection": "Start Detection"
+  },
+  "util": {
+    "openFolderFailed": "Failed to open folder",
+    "processing": "Processing...",
+    "noVideoFileSelected": "No video file selected",
+    "selectVideoFirst": "Please select a video first",
+    "clipFailed": "Clip failed",
+    "clipSuccess": "Clip successful",
+    "permanentlyDelete": "Permanently delete",
+    "moveToTrash": "Move to trash",
+    "failed": "failed",
+    "success": "successful",
+    "getVideoInfoFailed": "Failed to get video info",
+    "syncStarted": "Sync started",
+    "noFiles": "No files",
+    "currentMode": "Current mode",
+    "trashMode": "Trash",
+    "normalMode": "Normal",
+    "getFileListFailed": "Failed to get file list",
+    "getTagListFailed": "Failed to get tag list",
+    "setTagFailed": "Failed to set tag",
+    "setTagSuccess": "Tag set successfully",
+    "openFolderSuccess": "Folder opened successfully",
+    "videoCropFailed": "Video crop failed",
+    "videoCropCompleted": "Video crop completed",
+    "deleteFailed": "Delete failed",
+    "deleteCompleted": "Delete completed",
+    "getKeyFrameInfoFailed": "Failed to get key frame info",
+    "getKeyFrameInfoCompleted": "Key frame info retrieved",
+    "videoPlaybackMode": "Video playback mode",
+    "thumbnailMode": "Thumbnail mode"
   }
 }
