@@ -208,5 +208,17 @@
     "checked": "✅",
     "curVideoThumbnailNull": "Current video thumbnail is null",
     "thumbnailCount": "Thumbnail count: {count}"
+  },
+  "tinyFileDb": {
+    "returnHome": "Return Home",
+    "thumbnailFilePath": "Thumbnail File Path",
+    "thumbnailDbPath": "Thumbnail Database Path",
+    "start": "Start",
+    "stop": "Stop",
+    "description": "Organize small file thumbnails into database",
+    "stopError": "File organization stop triggered",
+    "stopSuccess": "File organization stop triggered successfully",
+    "startError": "File organization",
+    "startSuccess": "File organization started successfully"
   }
 }

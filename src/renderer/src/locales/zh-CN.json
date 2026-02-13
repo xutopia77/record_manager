@@ -208,5 +208,17 @@
     "checked": "✅",
     "curVideoThumbnailNull": "当前视频缩略图为空",
     "thumbnailCount": "缩略图数量: {count}"
+  },
+  "tinyFileDb": {
+    "returnHome": "返回主页",
+    "thumbnailFilePath": "缩略图文件路径",
+    "thumbnailDbPath": "缩略图数据库路径",
+    "start": "开始",
+    "stop": "停止",
+    "description": "把小文件缩略图文件，整理到数据库中",
+    "stopError": "文件整理停止触发",
+    "stopSuccess": "文件整理停止触发成功",
+    "startError": "文件整理",
+    "startSuccess": "文件整理开始成功"
   }
 }
