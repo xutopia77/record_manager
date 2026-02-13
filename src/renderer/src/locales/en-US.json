@@ -192,5 +192,21 @@
     "minutesAgo": "{minutes} minutes ago",
     "hoursAgo": "{hours} hours ago",
     "daysAgo": "{days} days ago"
+  },
+  "thumbCtrlBar": {
+    "totalFiles": "Total Files",
+    "deleteFile": "Delete File",
+    "delete": "Delete",
+    "noSelectedFile": "No selected file"
+  },
+  "thumbFileList": {
+    "selectionChanged": "Video {name} is {status}",
+    "levelColorMapping": "Level name: {levelName}, Target color: {targetColor}"
+  },
+  "thumbView": {
+    "unchecked": "⬜",
+    "checked": "✅",
+    "curVideoThumbnailNull": "Current video thumbnail is null",
+    "thumbnailCount": "Thumbnail count: {count}"
   }
 }
