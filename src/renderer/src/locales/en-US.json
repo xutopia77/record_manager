@@ -169,5 +169,13 @@
     "stopSyncFailed": "Failed to stop sync",
     "syncProjectFailed": "Failed to sync project",
     "backgroundExecuting": "Executing in background..."
+  },
+  "adminTagMng": {
+    "serialNumber": "Serial Number",
+    "name": "Name",
+    "color": "Color",
+    "operations": "Operations",
+    "edit": "Edit",
+    "delete": "Delete"
   }
 }

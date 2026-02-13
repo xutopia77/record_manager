@@ -169,5 +169,13 @@
     "stopSyncFailed": "停止同步失败",
     "syncProjectFailed": "同步项目失败",
     "backgroundExecuting": "后台执行中..."
+  },
+  "adminTagMng": {
+    "serialNumber": "序号",
+    "name": "名称",
+    "color": "颜色",
+    "operations": "操作",
+    "edit": "编辑",
+    "delete": "删除"
   }
 }
